@@ -1,68 +1,92 @@
-<Doctype html>
-<html>
-    <head>
-        <title>Contact</title>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Joshnspire Academy</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6f2ff;
+            color: #333;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 40px;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, textarea {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #007acc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #005999;
+        }
+        footer {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
 
-            header {
-                background-color: #333;
-                color: #fff;
-                padding: 10px 0;
-                text-align: center;
-            }
+    <header>
+        <h1>Contact Joshnspire Academy</h1>
+    </header>
 
-            nav ul {
-                list-style-type: none;
-                padding: 0;
-            }
+    <main>
+        <h2>We’d love to hear from you!</h2>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your Name" required>
 
-            nav ul li {
-                display: inline;
-                margin-right: 10px;
-            }
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Your Email" required>
 
-            nav ul li a {
-                color: #fff;
-                text-decoration: none;
-            }
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
 
-            main {
-                padding: 20px;
-            }
+            <button type="submit">Send Message</button>
+        </form>
+    </main>
 
-            section {
-                margin-bottom: 20px;
-            }
+    <footer>
+        &copy; 2025 Joshnspire Academy. All rights reserved.
+    </footer>
 
-            footer {
-                background-color: #333;
-                color: #fff;
-                text-align: center;
-                padding: 10px 0;
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="home">Home</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="contact">Contact</a></li>
-                    <li><a href="courses">Courses</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <main>
-            <section>
-                <h1>Contact Us</h1>
-                <p>For any doubts while learning, Join our Members only exclusive slack channel</p>
-                <a href="https://www.youtube.com/abhishekVeeramalla/join">Join Slack</a>
+</body>
+</html>
