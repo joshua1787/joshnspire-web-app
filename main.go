@@ -12,7 +12,7 @@ type Program struct {
 }
 
 func main() {
-	// Serve static files like home.html, about.html, etc.
+	// Serve static files like index.html, about.html, etc.
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	// Define routes
@@ -27,7 +27,7 @@ func main() {
 
 // Handler for the Home Page
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "static/home.html")
+	http.ServeFile(w, r, "static/index.html")
 }
 
 // Handler for the About Page

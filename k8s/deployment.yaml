@@ -1,0 +1,22 @@
+# This is a sample deployment manifest file for a simple web application.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: joshnspire-web-app
+  labels:
+    app: joshnspire-web-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: joshnspire-web-app
+  template:
+    metadata:
+      labels:
+        app: joshnspire-web-app
+    spec:
+      containers:
+      - name: joshnspire-web-app
+        image: joshuaveeraiah1245/joshnspire-web-app:v1
+        ports:
+        - containerPort: 8080
