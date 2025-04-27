@@ -41,6 +41,7 @@ jobs:
       with:
         version: v1.56.2
         working-directory: .
+        args: "--skip-dirs-use-default --timeout 5m"
   
   push:
     runs-on: ubuntu-latest
