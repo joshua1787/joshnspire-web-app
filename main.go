@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 )
 
@@ -12,7 +13,7 @@ type Program struct {
 }
 
 func main() {
-	// Serve static files like index.html, about.html, etc.
+	// Serve static files
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	// Define routes
@@ -21,26 +22,28 @@ func main() {
 	http.HandleFunc("/contact", contactHandler)
 	http.HandleFunc("/programs", programsHandler)
 
-	// Start server
-	http.ListenAndServe(":8080", nil)
+	// Start server and check for error
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		log.Fatalf("Failed to start server: %v", err)
+	}
 }
 
-// Handler for the Home Page
+// Handler for Home Page
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "static/index.html")
+	http.ServeFile(w, r, "static/home.html")
 }
 
-// Handler for the About Page
+// Handler for About Page
 func aboutHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "static/about.html")
 }
 
-// Handler for the Contact Page
+// Handler for Contact Page
 func contactHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "static/contact.html")
 }
 
-// Handler for the Programs API
+// Handler for Programs API
 func programsHandler(w http.ResponseWriter, r *http.Request) {
 	programs := []Program{
 		{Title: "DevOps Mastery", Description: "Become a certified DevOps Engineer with hands-on experience."},
@@ -49,6 +52,7 @@ func programsHandler(w http.ResponseWriter, r *http.Request) {
 		{Title: "Site Reliability Engineering", Description: "Learn to manage reliable and scalable systems."},
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(programs)
+	if err := json.NewEncoder(w).Encode(programs); err != nil {
+		http.Error(w, "Failed to encode programs", http.StatusInternalServerError)
+	}
 }
