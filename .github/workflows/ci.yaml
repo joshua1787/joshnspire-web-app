@@ -2,7 +2,7 @@
 
 name: CI/CD
 
-# Exclude the workflow to run on changes to the helm chart and k8s manifests
+# Exclude the workflow to run on changes to the helm chart
 on:
   push:
     branches:
@@ -26,10 +26,10 @@ jobs:
       with:
         go-version: 1.22.4
 
-    - name: Build the Go application
+    - name: Build
       run: go build -o joshnspire-web-app
 
-    - name: Run tests
+    - name: Test
       run: go test ./...
   
   code-quality:
@@ -62,7 +62,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Build and Push Docker Image
+    - name: Build and Push action
       uses: docker/build-push-action@v6
       with:
         context: .
@@ -81,14 +81,14 @@ jobs:
       with:
         token: ${{ secrets.TOKEN }}
 
-    - name: Update Docker image tag in Helm values.yaml
+    - name: Update tag in Helm chart
       run: |
         sed -i 's/tag: .*/tag: "${{ github.run_id }}"/' helm/joshnspire-web-app-chart/values.yaml
 
-    - name: Commit and Push updated Helm chart
+    - name: Commit and push changes
       run: |
         git config --global user.email "joshua.veeraiah@example.com"
         git config --global user.name "Joshua Veeraiah"
         git add helm/joshnspire-web-app-chart/values.yaml
-        git commit -m "Update Docker image tag in Helm chart"
+        git commit -m "Update tag in Helm chart"
         git push
