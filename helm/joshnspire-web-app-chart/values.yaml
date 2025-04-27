@@ -8,7 +8,7 @@ image:
   repository: joshuaveeraiah1245/joshnspire-web-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "14692895024"
+  tag: "14693009856"
 
 ingress:
   enabled: false
