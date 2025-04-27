@@ -1,95 +1,71 @@
-# 🚀 Joshnspire Academy - Web Application
+# 🌟 JoshNspire Web App - DevOps Project
 
-Welcome to the official web application of **Joshnspire Academy** — a platform crafted to empower learners by showcasing programs in DevOps, Cloud, and Software Engineering.
+This project demonstrates a **production-ready** web application deployed using **Kubernetes (EKS)**, **Helm**, **ArgoCD**, and **GitHub Actions CI/CD**.
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Project Overview
 
-- **Backend**: Go (Golang) `net/http`
-- **Frontend**: HTML5, CSS3
-- **Architecture**: Static File Serving + Dynamic API
+- **Frontend:** Simple static HTML website (DevOps Courses Platform)
+- **Backend:** GoLang server
+- **Containerized:** Docker
+- **Deployed on:** AWS Elastic Kubernetes Service (EKS)
+- **Load Balancer:** AWS ALB + Ingress Controller (NGINX)
+- **CI/CD:** GitHub Actions (build, test, lint, Docker push, Helm update)
+- **GitOps:** ArgoCD for auto-deployment of new versions
+
+---
+
+## 🛠️ Technologies Used
+
+- **AWS EKS** - Kubernetes Cluster
+- **Helm** - Application Packaging and Deployment
+- **ArgoCD** - GitOps Continuous Deployment
+- **GitHub Actions** - CI/CD Pipeline
+- **Docker** - Containerization
+- **NGINX Ingress Controller** - Load Balancing and Routing
+- **GoLang** - Web server
+- **HTML/CSS** - Static Website
 
 ---
 
 ## 📂 Project Structure
 
-```
-.
-├── main.go            # Golang server
-├── static/
-│   ├── home.html      # Landing page
-│   ├── about.html     # About page
-│   ├── contact.html   # Contact page
-│   └── programs.html  # Programs listing page
-├── go.mod             # Go module file
-├── go.sum             # Go dependencies checksum
-└── README.md          # Project documentation
-```
+- `.github/workflows/ci.yaml` — GitHub Actions workflow file
+- `helm/joshnspire-web-app-chart/` — Helm chart for Kubernetes deployment
+- `k8s/` — Kubernetes manifests (optional)
+- `static/` — Static HTML pages for frontend
+- `main.go` — GoLang server code
+- `main_test.go` — GoLang unit test file
+- `Dockerfile` — Docker image build instructions
+- `go.mod` — Go dependencies file (module setup)
+
+## 🔥 Features
+
+- ✅ Automatic Docker image build and push to DockerHub
+- ✅ Helm chart tag updates automatically after every build
+- ✅ Continuous Deployment using ArgoCD GitOps
+- ✅ Ingress Controller Load Balancer setup with DNS routing
+- ✅ Production-grade Kubernetes deployment following best practices
 
 ---
 
-## 🚀 How to Run Locally
+## 📸 Screenshots
 
-Clone the repository:
-
-```bash
-git clone https://github.com/your-username/joshnspire-web-app.git
-cd joshnspire-web-app
-```
-
-Run the server:
-
-```bash
-go run main.go
-```
-
-Server will start on **port 8080**.
-
-Access the application:
-
-| Page       | URL                                  |
-|------------|--------------------------------------|
-| Home       | http://localhost:8080/               |
-| About      | http://localhost:8080/about          |
-| Contact    | http://localhost:8080/contact        |
-| Programs API (JSON) | http://localhost:8080/programs |
+_(You can upload screenshots here later if you want)_
 
 ---
 
-## 🌟 Features
+## 🙌 Author
 
-- ✨ Fully customized frontend for Joshnspire Academy
-- ✨ REST-style API endpoint serving programs
-- ✨ Clean modular Go server code
-- ✨ Professional design — ready for deployment
-- ✨ Simple and fast to run locally
+**Joshua Veeraiah**  
+🔗 [LinkedIn Profile](https://www.linkedin.com/in/joshua1787/)  
+🏅 AWS Certified DevOps Engineer - Professional
 
 ---
 
-## 🖼️ Project Preview
+## 📢 Important
 
-*(After running locally, add your screenshot here!)*
+> This project is for **learning**, **portfolio building**, and **showcasing** real-world DevOps project skills to recruiters and companies.
 
-Example:
 
-```
-static/images/joshnspire-landing.png
-```
-
-You can add it using:
-
-```markdown
-![Landing Page Preview](static/images/joshnspire-landing.png)
-```
-
----
-
-## 📜 License
-
-This project is intended for educational, portfolio, and demonstration purposes.  
-All rights reserved © 2025 **Joshnspire Academy**.
-
----
-
-# 🔥 Let's Build and Inspire the Future with Joshnspire!
