@@ -4,7 +4,7 @@ A production-grade cloud-native web application demonstrating end-to-end DevOps 
 
 ---
 
-## 🚀 Project Overview
+##  Project Overview
 
 **joshnspire-web-app** is a modern micro web app built using GoLang for backend and HTML for frontend. It showcases a real-world DevOps pipeline and GitOps deployment strategy used in large-scale production environments.
 
@@ -18,7 +18,7 @@ A production-grade cloud-native web application demonstrating end-to-end DevOps 
 
 ---
 
-## ⚙️ Architecture
+##  Architecture
 
 ![Architecture Diagram](./architecture/diagram.png)
 
@@ -35,7 +35,7 @@ A production-grade cloud-native web application demonstrating end-to-end DevOps 
 
 ---
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 | Layer             | Technology                |
 |------------------|---------------------------|
@@ -50,7 +50,7 @@ A production-grade cloud-native web application demonstrating end-to-end DevOps 
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 .
@@ -67,7 +67,7 @@ A production-grade cloud-native web application demonstrating end-to-end DevOps 
 
 ---
 
-## 🔁 CI/CD Pipeline (GitHub Actions)
+##  CI/CD Pipeline (GitHub Actions)
 
 GitHub Actions workflow automates:
 - Code linting & testing
@@ -85,7 +85,7 @@ GitHub Actions workflow automates:
 
 ---
 
-## 🔄 GitOps with ArgoCD
+##  GitOps with ArgoCD
 
 - ArgoCD monitors the Git repository for changes.
 - Automatically syncs Helm values to the EKS cluster.
@@ -93,7 +93,7 @@ GitHub Actions workflow automates:
 
 ---
 
-## ⚡ Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -123,7 +123,7 @@ helm upgrade --install joshnspire . --values values.yaml
 
 ---
 
-## ✅ Features
+##  Features
 
 - End-to-end automated DevOps pipeline
 - GitOps-first architecture
@@ -133,9 +133,9 @@ helm upgrade --install joshnspire . --values values.yaml
 
 ---
 
-## 📄 License
+##  License
 
-This project is licensed under the [Apache 2.0 License](LICENSE).
+--
 
 ---
 
