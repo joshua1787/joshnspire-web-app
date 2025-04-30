@@ -1,71 +1,150 @@
-# 🌟 JoshNspire Web App - DevOps Project
+# joshnspire-web-app
 
-This project demonstrates a **production-ready** web application deployed using **Kubernetes (EKS)**, **Helm**, **ArgoCD**, and **GitHub Actions CI/CD**.
+A production-grade cloud-native web application demonstrating end-to-end DevOps practices including CI/CD with GitHub Actions, GitOps with ArgoCD, container orchestration on AWS EKS, and packaging with Helm.
 
 ---
 
 ## 🚀 Project Overview
 
-- **Frontend:** Simple static HTML website (DevOps Courses Platform)
-- **Backend:** GoLang server
-- **Containerized:** Docker
-- **Deployed on:** AWS Elastic Kubernetes Service (EKS)
-- **Load Balancer:** AWS ALB + Ingress Controller (NGINX)
-- **CI/CD:** GitHub Actions (build, test, lint, Docker push, Helm update)
-- **GitOps:** ArgoCD for auto-deployment of new versions
+**joshnspire-web-app** is a modern micro web app built using GoLang for backend and HTML for frontend. It showcases a real-world DevOps pipeline and GitOps deployment strategy used in large-scale production environments.
+
+### Key Highlights:
+- Containerized Go backend + static HTML frontend
+- CI/CD pipeline with **GitHub Actions**
+- GitOps deployment with **ArgoCD**
+- Helm chart packaging for Kubernetes
+- Hosted on **AWS EKS** (Elastic Kubernetes Service)
+- Ingress managed by **NGINX + AWS ALB**
 
 ---
 
-## 🛠️ Technologies Used
+## ⚙️ Architecture
 
-- **AWS EKS** - Kubernetes Cluster
-- **Helm** - Application Packaging and Deployment
-- **ArgoCD** - GitOps Continuous Deployment
-- **GitHub Actions** - CI/CD Pipeline
-- **Docker** - Containerization
-- **NGINX Ingress Controller** - Load Balancing and Routing
-- **GoLang** - Web server
-- **HTML/CSS** - Static Website
+![Architecture Diagram](./architecture/diagram.png)
 
----
+**Workflow Summary:**
 
-## 📂 Project Structure
-
-- `.github/workflows/ci.yaml` — GitHub Actions workflow file
-- `helm/joshnspire-web-app-chart/` — Helm chart for Kubernetes deployment
-- `k8s/` — Kubernetes manifests (optional)
-- `static/` — Static HTML pages for frontend
-- `main.go` — GoLang server code
-- `main_test.go` — GoLang unit test file
-- `Dockerfile` — Docker image build instructions
-- `go.mod` — Go dependencies file (module setup)
-
-## 🔥 Features
-
-- ✅ Automatic Docker image build and push to DockerHub
-- ✅ Helm chart tag updates automatically after every build
-- ✅ Continuous Deployment using ArgoCD GitOps
-- ✅ Ingress Controller Load Balancer setup with DNS routing
-- ✅ Production-grade Kubernetes deployment following best practices
+1. Developer pushes code to GitHub.
+2. GitHub Actions:
+   - Runs tests and linters
+   - Builds Docker image
+   - Pushes image to registry
+   - Updates Helm chart version
+3. ArgoCD auto-syncs to EKS with new Helm values.
+4. EKS schedules pods, and traffic is routed via ALB → NGINX Ingress → Go backend service.
 
 ---
 
-## 📸 Screenshots
+## 🧰 Tech Stack
 
-_(You can upload screenshots here later if you want)_
+| Layer             | Technology                |
+|------------------|---------------------------|
+| Language          | Go                        |
+| Frontend          | Static HTML               |
+| Containerization  | Docker                    |
+| Orchestration     | Kubernetes on AWS EKS     |
+| CI/CD             | GitHub Actions            |
+| GitOps            | ArgoCD                    |
+| Package Manager   | Helm                      |
+| Ingress Controller| NGINX + AWS ALB           |
 
 ---
 
-## 🙌 Author
+## 📁 Project Structure
+
+```
+.
+├── static/                          # Static HTML frontend
+├── main.go                          # Go backend server
+├── main_test.go                     # Unit tests
+├── Dockerfile                       # Build instructions
+├── go.mod / go.sum                  # Go dependencies
+├── helm/
+│   └── joshnspire-web-app-chart/    # Helm chart to deploy app on Kubernetes
+├── k8s/                             # Raw Kubernetes manifests (optional)
+└── .github/workflows/               # GitHub Actions CI/CD pipeline
+```
+
+---
+
+## 🔁 CI/CD Pipeline (GitHub Actions)
+
+GitHub Actions workflow automates:
+- Code linting & testing
+- Docker build & image push
+- Helm chart update
+
+```yaml
+# Sample GitHub Actions Step
+- name: Build & Push Docker Image
+  run: |
+    docker build -t $IMAGE_TAG .
+    echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+    docker push $IMAGE_TAG
+```
+
+---
+
+## 🔄 GitOps with ArgoCD
+
+- ArgoCD monitors the Git repository for changes.
+- Automatically syncs Helm values to the EKS cluster.
+- Ensures declarative and version-controlled deployments.
+
+---
+
+## ⚡ Getting Started
+
+### Prerequisites
+
+- AWS CLI configured
+- EKS cluster setup
+- ArgoCD installed and accessible
+- Docker Hub or ECR registry
+- Docker, kubectl, Helm installed
+
+### Deployment Steps
+
+```bash
+# Clone repo
+git clone https://github.com/joshua1787/joshnspire-web-app.git
+cd joshnspire-web-app
+
+# Build image
+docker build -t <your-image> .
+
+# Push image
+docker push <your-image>
+
+# Deploy using Helm
+cd helm/joshnspire-web-app-chart
+helm upgrade --install joshnspire . --values values.yaml
+```
+
+---
+
+## ✅ Features
+
+- End-to-end automated DevOps pipeline
+- GitOps-first architecture
+- Lightweight and scalable Go backend
+- Easy to replicate and extend in real projects
+- Suitable for production-ready workflows
+
+---
+
+## 📄 License
+
+This project is licensed under the [Apache 2.0 License](LICENSE).
+
+---
+
+## 👨‍💼 Author
 
 **Joshua Veeraiah**  
-🔗 [LinkedIn Profile](https://www.linkedin.com/in/joshua1787/)  
-🏅 AWS Certified DevOps Engineer - Professional
+AWS Certified DevOps Engineer – Professional  
+GitHub: [@joshua1787](https://github.com/joshua1787)
+```
 
 ---
-
-## 📢 Important
-
-> This project is for **learning**, **portfolio building**, and **showcasing** real-world DevOps project skills to recruiters and companies.
-
 
